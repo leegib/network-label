@@ -1,0 +1,7 @@
+@()(implicit messages: Messages)
+
+@views.html.base() {
+  <div class="ui header">@messages("network_label")</div>
+} {
+  <script src="@routes.Assets.at("js/index/entry.js")"></script>
+}
