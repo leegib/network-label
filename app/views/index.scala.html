@@ -1,7 +1,27 @@
-@()(implicit messages: Messages)
+@()(implicit request: Request[_], messages: Messages)
 
 @views.html.base() {
-  <div class="ui header">@messages("network_label")</div>
+  <div class="ui attached inverted mini menu">
+    <div class="ui header item">
+      @messages("network_label")
+    </div>
+    <div class="right menu">
+      <div class="ui small dropdown item" v-dropdown>
+        <i class="user outline icon"></i>
+        @request.session.get(Auth.SESSION_PARTNER_NAME)
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a href="@controllers.routes.Index.logout.url" class="item">
+            <i class="power icon"></i>
+            @messages("logout")
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui attached inverted grey menu">
+    <h4 class="ui header item"></h4>
+  </div>
 } {
   <script src="@routes.Assets.at("js/index/entry.js")"></script>
 }

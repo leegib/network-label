@@ -1,0 +1,44 @@
+@()(implicit messages: Messages)
+
+@views.html.base() {
+  <div class="ui secondary segment" style="height: inherit; margin: 0;">
+    <div class="ui middle aligned grid" style="height: inherit;">
+      <div class="six wide column"></div>
+      <div class="four wide column">
+        <div class="ui header" style="margin-bottom: 5px;">
+          <i class="settings icon"></i>
+          <div class="content">
+            @messages("network_label")
+            <div class="ui large grey sub header">@messages("partner_login")</div>
+          </div>
+        </div>
+        <div class="ui attached red segment">
+          <div class="ui form">
+            <div class="field" v-if="data.networkList">
+              <label>@messages("network_select")</label>
+              <div class="ui selection dropdown" v-dropdown="{obj: form.data, key: 'networkId', val: data.networkList[0].id}">
+                <i class="dropdown icon"></i>
+                <div class="default text">@messages("network_select")</div>
+                <div class="menu">
+                  <div class="item" v-bind:data-value="item.id" v-for="item in data.networkList">{{item.name}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="field" v-bind:class="{'error': form.error.partnerId}">
+              <label>@messages("partner_id")</label>
+              <input type="text" v-model="form.data.partnerId" v-on:keyup.enter="submit()"/>
+            </div>
+            <div class="field" v-bind:class="{'error': form.error.businessId}">
+              <label>@messages("business_id")</label>
+              <input type="text" v-model="form.data.businessId" v-on:keyup.enter="submit()"/>
+            </div>
+            <div class="ui fluid black button" v-on:click="submit()">@messages("login")</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+} {
+  <script src="@controllers.routes.Index.jsRoutes"></script>
+  <script src="@routes.Assets.at("js/login/entry.js")"></script>
+}
