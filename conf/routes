@@ -1,5 +1,17 @@
 # Index
-GET        /                    controllers.Index.page
+GET         /                    controllers.Index.page
+
+# jsRoutes
+GET         /jsRoutes            controllers.Index.jsRoutes
+
+# Network
+GET         /network             controllers.Index.networkList
+
+# Login
+POST        /login               controllers.Index.login
+
+# Logout
+GET         /logout              controllers.Index.logout
 
 # Asset
-GET        /assets/*file        controllers.Assets.at(path="/public", file)
+GET         /assets/*file        controllers.Assets.at(path="/public", file)
