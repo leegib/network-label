@@ -7,11 +7,11 @@ import play.api.libs.json.Json
 import play.api.mvc.{Action, Controller}
 import play.api.routing.JavaScriptReverseRouter
 
-class Index @Inject()(val messagesApi: MessagesApi, daoNetwork: dao.Network, daoPartner: dao.Partner) extends Controller with I18nSupport {
+class Index @Inject()(val messagesApi: MessagesApi, daoAuth: dao.Auth, daoOrder: dao.Order) extends Controller with I18nSupport {
 
   def page = Action { implicit request =>
     request.session.get(Auth.SESSION_PARTNER).map(UUID.fromString).map { partnerUid =>
-      daoPartner.partner(partnerUid) match {
+      daoAuth.partner(partnerUid) match {
         case r if r.isRight => r.right.get.map { networkId =>
           Ok(views.html.index())
         }.getOrElse(Unauthorized(views.html.login()))
@@ -21,7 +21,7 @@ class Index @Inject()(val messagesApi: MessagesApi, daoNetwork: dao.Network, dao
   }
 
   def networkList = Action { request =>
-    daoNetwork.networkList match {
+    daoAuth.networkList match {
       case r if r.isRight => Ok(Json.toJson(r.right.get))
       case r => BadRequest(requestMsg(r.left.get))
     }
@@ -29,8 +29,8 @@ class Index @Inject()(val messagesApi: MessagesApi, daoNetwork: dao.Network, dao
 
   def login = Action { implicit request =>
     forms.Auth.login.bindFromRequest.fold(
-      error => BadRequest(error.errorsAsJson),
-      form => daoPartner.partner(form._1, form._2, form._3) match {
+      error => BadRequest(error.errorsAsJson), {
+      case (networkId, partnerId, businessId) => daoAuth.login(networkId, partnerId, businessId) match {
         case r if r.isRight && r.right.get.isEmpty => BadRequest(requestMsg("login.error_none"))
         case r if r.isRight => r.right.get.map { partner =>
           Ok(controllers.routes.Index.page.url).withSession(
@@ -39,7 +39,7 @@ class Index @Inject()(val messagesApi: MessagesApi, daoNetwork: dao.Network, dao
             (Auth.SESSION_PARTNER_NAME -> partner.name)
           )}.getOrElse(BadRequest(requestMsg("login.error_none")))
         case r => BadRequest(requestMsg(r.left.get))
-      }
+      }}
     )
   }
 
