@@ -12,4 +12,13 @@ package object controllers {
     }
   ))
 
+  implicit class ImplicitString(str: String) {
+    def toUnderscoreCase: String = {
+      "[A-Z]".r.replaceAllIn(str, s => s"_${s.matched.toLowerCase}")
+    }
+    def toCamelCase: String = {
+      "_[a-z]".r.replaceAllIn(str, _.matched.replace("_", "").toUpperCase)
+    }
+  }
+
 }

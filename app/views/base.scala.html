@@ -1,14 +1,18 @@
-@(header: Any)(body: Any)(footer: Any)
+@(header: Any)(entry: Any)(body: Any)(footer: Any)
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="@routes.Assets.at("lib/semantic-ui-css/semantic.min.css")">
+    <link rel="stylesheet" href="@routes.Assets.at("css/application.css")">
     @header
   </head>
   <body>
-    <div id="app" style="height: inherit;">@body</div>
+    <div id="app" style="height: inherit; overflow: hidden;">
+      @entry
+    </div>
+    @body
     <script src="@routes.Assets.at("lib/jquery/dist/jquery.min.js")"></script>
     <script src="@routes.Assets.at("lib/semantic-ui-css/semantic.min.js")"></script>
     @footer

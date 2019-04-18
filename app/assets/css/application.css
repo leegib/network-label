@@ -1,0 +1,4 @@
+DIV.flex-stretch {
+  display: flex !important;
+  flex-direction: column !important;
+}
