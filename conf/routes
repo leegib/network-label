@@ -1,13 +1,18 @@
 # Index
 # 페이지
-GET         /                    controllers.Index.page
+GET         /                         controllers.Index.page
 # 네트워크 목록
-GET         /network             controllers.Index.networkList
+GET         /network                  controllers.Index.networkList
 # 로그인
-POST        /login               controllers.Index.login
+POST        /login                    controllers.Index.login
 # 로그아웃
-GET         /logout              controllers.Index.logout
+GET         /logout                   controllers.Index.logout
 # jsRoutes
-GET         /jsRoutes            controllers.Index.jsRoutes
+GET         /jsRoutes                 controllers.Index.jsRoutes
+
+# 팔레트 라벨 출력
+# 발주 목록
+POST        /palletLabel/order        controllers.PalletLabel.orderList(searchWord: String ?= "")
+
 # Asset
-GET         /assets/*file        controllers.Assets.at(path="/public", file)
+GET         /assets/*file             controllers.Assets.at(path="/public", file)

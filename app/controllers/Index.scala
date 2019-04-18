@@ -7,7 +7,7 @@ import play.api.libs.json.Json
 import play.api.mvc.{Action, Controller}
 import play.api.routing.JavaScriptReverseRouter
 
-class Index @Inject()(val messagesApi: MessagesApi, daoAuth: dao.Auth, daoOrder: dao.Order) extends Controller with I18nSupport {
+class Index @Inject()(val messagesApi: MessagesApi, daoAuth: dao.Auth, daoOrder: dao.PalletLabel) extends Controller with I18nSupport {
 
   def page = Action { implicit request =>
     request.session.get(Auth.SESSION_PARTNER).map(UUID.fromString).map { partnerUid =>
@@ -54,7 +54,8 @@ class Index @Inject()(val messagesApi: MessagesApi, daoAuth: dao.Auth, daoOrder:
   def jsRoutes = Action { implicit request =>
     Ok(JavaScriptReverseRouter("jsRoutes")(
       controllers.routes.javascript.Index.networkList,
-      controllers.routes.javascript.Index.login
+      controllers.routes.javascript.Index.login,
+      controllers.routes.javascript.PalletLabel.orderList
     )).as(JAVASCRIPT)
   }
 
