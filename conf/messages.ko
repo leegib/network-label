@@ -1,13 +1,31 @@
+# 페이지
 network_label  = 네트워크 라벨 시스템
-partner_login  = 협력사 로그인
-network_select = 네트워크 선택
 
-partner_id  = 협력사 아이디(TTA)
-business_id = 사업자 번호(111-11-11111)
+login.partner_login  = 협력사 로그인
+login.network_select = 네트워크 선택
+login.partner_id     = 협력사 아이디(TTA)
+login.business_id    = 사업자 번호(111-11-11111)
+login.submit         = 로그인
+login.error_none     = 일치하는 로그인 정보가 없습니다
 
-login            = 로그인
-login.error_none = 일치하는 로그인 정보가 없습니다
+pallet_label_print                        = 팔레트 라벨 출력
+pallet_label_print.order_list             = 발주 목록
+pallet_label_print.order_list.order_date  = 발주 일자 선택(시작일, 종료일)
+pallet_label_print.order_list.search_word = 검색어(발주 번호, 품번, 품명)
 
+
+# 공통
+due_date = 납기일
 logout = 로그아웃
+order_id = 발주 번호
+order_date = 발주일
+product_id = 품번
+product_name = 품명
+quantity = 수량
+revision = 버전
+search_word_input = 검색어 입력
 
+
+# Form
+error.date     = 올바른 날짜를 입력해야 합니다
 error.required = 해당 입력란은 필수입니다

@@ -1,0 +1,55 @@
+@(page: String)(implicit messages: Messages)
+
+<div class="ui blue dividing header">@messages(page)</div>
+<div class="ui form">
+  <div class="fields field">
+    <div class="eight wide field">
+      <label>@messages(s"$page.order_date")</label>
+      <div class="two fields">
+        @defining("startDate", "endDate") { case (startDate, endDate) =>
+          @defining(s"$page.${startDate.toUnderscoreCase}") { f =>
+            <div class="field">
+              <div class="ui icon input">
+                <input type="text" v-datepicker="{
+                  key: '@startDate', obj: 'form.data', id: '@f', storage: storage,
+                  val: storage['@f'] ? storage['@f'] : moment().subtract(30, 'd').format('YYYY-MM-DD'),
+                  mask: {alias: 'yyyy-mm-dd'}, maxDateKey: '@endDate', onChange: checkFetch
+                }" ref="@startDate"/>
+                <i class="icon calendar"></i>
+              </div>
+            </div>
+          }
+          <span style="padding-top: 8px;">~</span>
+          @defining(s"$page.${endDate.toUnderscoreCase}") { f =>
+            <div class="field">
+              <div class="ui icon input">
+                <input type="text" v-datepicker="{
+                  key: '@endDate', obj: 'form.data', id: '@f', storage: storage,
+                  val: storage['@f'] ? storage['@f'] : Date(),
+                  mask: {alias: 'yyyy-mm-dd'}, minDateKey: '@startDate', onChange: checkFetch
+                }" ref="@endDate"/>
+                <i class="icon calendar"></i>
+              </div>
+            </div>
+          }
+        }
+      </div>
+    </div>
+    <div class="eight wide field">
+      <label>@messages(s"$page.search_word")</label>
+      @templates.search()
+    </div>
+  </div>
+</div>
+<div class="ag-theme-balham" v-grid="{
+  columnDefs: [
+    {headerName: '#', valueGetter: 'node.rowIndex + 1', width: 50},
+    {headerName: '@messages("order_id")', field: 'id', width: 120},
+    {headerName: '@messages("order_date")', field: 'orderDate', width: 100},
+    {headerName: '@messages("due_date")', field: 'dueDate', width: 100},
+    {headerName: '@messages("product_id")', field: 'productId', width: 120},
+    {headerName: '@messages("product_name")', field: 'productName', width: 200},
+    {headerName: '@messages("revision")', field: 'revision', width: 80},
+    {headerName: '@messages("quantity")', field: 'quantity', width: 80, cellRenderer: renderNumber, filter: 'agNumberColumnFilter'}
+  ]
+}"></div>
