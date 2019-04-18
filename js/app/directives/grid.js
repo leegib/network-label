@@ -27,8 +27,8 @@ export default {
         }));
       },
       localeText: {
-        //loadingOoo: window.messages.dataBefore,
-        //noRowsToShow: window.messages.dataEmpty
+        loadingOoo: msg("data_before"),
+        noRowsToShow: msg("data_empty")
       }
     };
     $(el).css("flex", 1);

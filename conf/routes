@@ -7,6 +7,8 @@ GET         /network                  controllers.Index.networkList
 POST        /login                    controllers.Index.login
 # 로그아웃
 GET         /logout                   controllers.Index.logout
+# jsMessages
+GET         /jsMessages               controllers.Index.jsMessages
 # jsRoutes
 GET         /jsRoutes                 controllers.Index.jsRoutes
 

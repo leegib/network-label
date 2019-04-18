@@ -15,6 +15,11 @@ pallet_label_print.order_list.search_word = 검색어(발주 번호, 품번, 품
 
 
 # 공통
+cancel = 취소
+clear = 초기화
+confirm = 확인
+data_before = 데이터가 조회되지 않은 상태입니다
+data_empty = 데이터가 존재하지 않습니다
 due_date = 납기일
 logout = 로그아웃
 order_id = 발주 번호
@@ -24,8 +29,27 @@ product_name = 품명
 quantity = 수량
 revision = 버전
 search_word_input = 검색어 입력
+today = 오늘
 
 
 # Form
 error.date     = 올바른 날짜를 입력해야 합니다
 error.required = 해당 입력란은 필수입니다
+
+
+# Datepicker
+day.sun     = 일
+day.sun_day = 일요일
+day.mon     = 월
+day.mon_day = 월요일
+day.tue     = 화
+day.tue_day = 화요일
+day.wed     = 수
+day.wed_day = 수요일
+day.thu     = 목
+day.thu_day = 목요일
+day.fri     = 금
+day.fri_day = 금요일
+day.sat     = 토
+day.sat_day = 토요일
+months = {0}월

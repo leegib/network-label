@@ -13,12 +13,12 @@ export default {
           boxWidth: "400px",
           buttons: {
             confirm: {
-              text: "확인",
+              text: msg("confirm"),
               btnClass: "btn-blue",
               action: handler
             },
             cancel: {
-             text: "취소"
+             text: msg("cancel")
             }
           }
         });

@@ -7,14 +7,26 @@ import {mkObj} from "../../app/util.js";
 export default {
   bind(el, binding, vnode) {
     (function ($) {
+      const days = [
+        msg("day.sun"), msg("day.mon"), msg("day.tue"), msg("day.wed"), msg("day.thu"),
+        msg("day.fri"), msg("day.sat")
+      ];
+
       $.fn.datepicker.language['kr'] = {
-        days: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-        daysShort: ['일', '월', '화', '수', '목', '금', '토'],
-        daysMin: ['일', '월', '화', '수', '목', '금', '토'],
-        months: ['1월','2월','3월','4월','5월','6월', '7월','8월','9월','10월','11월','12월'],
+        days: [
+          msg("day.sun_day"), msg("day.mon_day"), msg("day.tue_day"), msg("day.wed_day"), msg("day.thu_day"),
+          msg("day.fri_day"), msg("day.sat_day")
+        ],
+        daysShort: days,
+        daysMin: days,
+        months: [
+          msg("months", 1), msg("months", 2), msg("months", 3), msg("months", 4), msg("months", 5),
+          msg("months", 6), msg("months", 7), msg("months", 8), msg("months", 9), msg("months", 10),
+          msg("months", 11), msg("months", 12)
+        ],
         monthsShort: ['01','02','03','04','05','06','07','08','09','10','11','12'],
-        today: '오늘',
-        clear: '리셋',
+        today: msg("today"),
+        clear: msg("clear"),
         dateFormat: 'yyyy-mm-dd',
         timeFormat: 'hh:ii aa',
         firstDay: 0

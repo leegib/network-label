@@ -6,9 +6,16 @@ import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.libs.json.Json
 import play.api.mvc.{Action, Controller}
 import play.api.routing.JavaScriptReverseRouter
+import jsmessages.JsMessagesFactory
 
-class Index @Inject()(val messagesApi: MessagesApi, daoAuth: dao.Auth, daoOrder: dao.PalletLabel) extends Controller with I18nSupport {
+class Index @Inject()(
+  val messagesApi: MessagesApi, jsMessagesFactory: JsMessagesFactory,
+  daoAuth: dao.Auth, daoOrder: dao.PalletLabel
+) extends Controller with I18nSupport {
 
+  /**
+   * 페이지
+   */
   def page = Action { implicit request =>
     request.session.get(Auth.SESSION_PARTNER).map(UUID.fromString).map { partnerUid =>
       daoAuth.partner(partnerUid) match {
@@ -20,6 +27,9 @@ class Index @Inject()(val messagesApi: MessagesApi, daoAuth: dao.Auth, daoOrder:
     }.getOrElse(Unauthorized(views.html.login()))
   }
 
+  /**
+   * 네트워크 목록
+   */
   def networkList = Action { request =>
     daoAuth.networkList match {
       case r if r.isRight => Ok(Json.toJson(r.right.get))
@@ -27,6 +37,9 @@ class Index @Inject()(val messagesApi: MessagesApi, daoAuth: dao.Auth, daoOrder:
     }
   }
 
+  /**
+   * 로그인
+   */
   def login = Action { implicit request =>
     forms.Auth.login.bindFromRequest.fold(
       error => BadRequest(error.errorsAsJson), {
@@ -43,12 +56,19 @@ class Index @Inject()(val messagesApi: MessagesApi, daoAuth: dao.Auth, daoOrder:
     )
   }
 
+  /**
+   * 로그아웃
+   */
   def logout = Action { implicit request =>
     Redirect(controllers.routes.Index.page.url).withSession(
       request.session -
       Auth.SESSION_PARTNER -
       Auth.SESSION_PARTNER_NAME
     )
+  }
+
+  def jsMessages = Action { request =>
+    Ok(jsMessagesFactory.all(Some("msg")))
   }
 
   def jsRoutes = Action { implicit request =>
