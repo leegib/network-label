@@ -1,0 +1,7 @@
+@()(implicit messages: Messages)
+
+<div class="ui fluid action input" style="margin-bottom: 14px;">
+  <input type="text" placeholder="@messages("search_word_input")" v-model="data.searchWord" v-on:keyup.enter="checkFetch ? checkFetch() : fetch()"/>
+  <div class="ui icon button" v-on:click="$set('data.searchWord', null)"><i class="remove icon"></i></div>
+  <div class="ui grey icon button" v-on:click="checkFetch ? checkFetch() : fetch()"><i class="icon search"></i></div>
+</div>
