@@ -16,7 +16,7 @@ class Index @Inject()(
   /**
    * 페이지
    */
-  def page = Action { implicit request =>
+  def page(path: String) = Action { implicit request =>
     request.session.get(Auth.SESSION_PARTNER).map(UUID.fromString).map { partnerUid =>
       daoAuth.partner(partnerUid) match {
         case r if r.isRight => r.right.get.map { networkId =>
@@ -46,7 +46,7 @@ class Index @Inject()(
       case (networkId, partnerId, businessId) => daoAuth.login(networkId, partnerId, businessId) match {
         case r if r.isRight && r.right.get.isEmpty => BadRequest(requestMsg("login.error_none"))
         case r if r.isRight => r.right.get.map { partner =>
-          Ok(controllers.routes.Index.page.url).withSession(
+          Ok(controllers.routes.Index.page("").url).withSession(
             request.session +
             (Auth.SESSION_PARTNER -> partner.uid.toString) +
             (Auth.SESSION_PARTNER_NAME -> partner.name)
@@ -60,7 +60,7 @@ class Index @Inject()(
    * 로그아웃
    */
   def logout = Action { implicit request =>
-    Redirect(controllers.routes.Index.page.url).withSession(
+    Redirect(controllers.routes.Index.page("").url).withSession(
       request.session -
       Auth.SESSION_PARTNER -
       Auth.SESSION_PARTNER_NAME
@@ -75,7 +75,8 @@ class Index @Inject()(
     Ok(JavaScriptReverseRouter("jsRoutes")(
       controllers.routes.javascript.Index.networkList,
       controllers.routes.javascript.Index.login,
-      controllers.routes.javascript.PalletLabel.orderList
+      controllers.routes.javascript.PalletLabel.orderList,
+      controllers.routes.javascript.PalletLabel.palletLabelList
     )).as(JAVASCRIPT)
   }
 

@@ -1,7 +1,6 @@
 package models
 
 import java.util.Date
-
 import play.api.libs.json.Json
 import anorm.SqlParser._
 import anorm._

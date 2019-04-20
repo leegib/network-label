@@ -1,6 +1,4 @@
 # Index
-# 페이지
-GET         /                         controllers.Index.page
 # 네트워크 목록
 GET         /network                  controllers.Index.networkList
 # 로그인
@@ -15,6 +13,12 @@ GET         /jsRoutes                 controllers.Index.jsRoutes
 # 팔레트 라벨 출력
 # 발주 목록
 POST        /palletLabel/order        controllers.PalletLabel.orderList(searchWord: String ?= "")
+# 팔레트 라벨 목록
+GET         /palletLabel              controllers.PalletLabel.palletLabelList(orderId: String)
 
 # Asset
 GET         /assets/*file             controllers.Assets.at(path="/public", file)
+
+# 페이지
+GET         /                         controllers.Index.page(path: String ?= "")
+GET         /*path                    controllers.Index.page(path: String)
