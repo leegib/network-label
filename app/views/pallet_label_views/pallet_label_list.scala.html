@@ -1,0 +1,15 @@
+@(page: String)(implicit messages: Messages)
+
+<div class="ui blue dividing header">@messages(page)</div>
+<div class="ag-theme-balham" v-grid="{
+  columnDefs: [
+    {headerName: '#', valueGetter: 'node.rowIndex + 1', width: 50},
+    {headerName: '@messages("pallet_id")', field: 'id', width: 120},
+    {headerName: '@messages("lot_no")', field: 'lotNo', width: 100},
+    {headerName: '@messages("quantity")', field: 'quantity', width: 100, cellRenderer: renderNumber, filter: 'agNumberColumnFilter'},
+    {headerName: '@messages("weight")', field: 'weight', width: 100, cellRenderer: renderNumber, filter: 'agNumberColumnFilter'},
+    {headerName: '@messages("weight_unit")', field: 'weightUnit', width: 100, cellRenderer: renderNumber, filter: 'agNumberColumnFilter'},
+    {headerName: '@messages("box_quantity")', field: 'boxQuantity', width: 100, cellRenderer: renderNumber, filter: 'agNumberColumnFilter'},
+    {headerName: '@messages("dispatch_date")', field: 'dispatchDate', width: 100}
+  ]
+}"></div>

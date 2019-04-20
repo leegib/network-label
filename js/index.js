@@ -12,6 +12,7 @@ import Grid from "./app/directives/grid.js";
 import {CommaNumber, Date} from "./app/filters.js";
 
 import OrderList from "./pallet_label_print/order_list.js";
+import PalletLabelList from "./pallet_label_print/pallet_label_list.js";
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
@@ -30,7 +31,12 @@ new Vue({
     routes: [{
       name: "orderList",
       path: "/",
-      component: OrderList
+      component: OrderList,
+      children: [{
+        name: "palletLabelList",
+        path: ":orderId",
+        component: PalletLabelList
+      }]
     }]
   })
 }).$mount("#app");

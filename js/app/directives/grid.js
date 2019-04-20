@@ -17,14 +17,16 @@ export default {
           vm.submit();
         }
       },
-      onSelectionChanged: (g) => {
-        const item = g.api.getSelectedRows()[0];
-        vm.$set(vm.data, "item", item);
-      },
       onFilterChanged: (g) => {
         vm.$set(vm.data, "rows", _.map(g.api.getRenderedNodes(), (item) => {
           return item.data;
         }));
+      },
+      onRowClicked(g) {
+        const item = g.api.getSelectedRows()[0];
+        if (vm.select) {
+          vm.select(item);
+        }
       },
       localeText: {
         loadingOoo: msg("data_before"),

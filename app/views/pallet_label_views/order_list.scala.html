@@ -44,11 +44,11 @@
 <div class="ag-theme-balham" v-grid="{
   columnDefs: [
     {headerName: '#', valueGetter: 'node.rowIndex + 1', width: 50},
-    {headerName: '@messages("order_id")', field: 'id', width: 120},
+    {headerName: '@messages("order_id")', field: 'id', width: 100},
     {headerName: '@messages("order_date")', field: 'orderDate', width: 100},
     {headerName: '@messages("due_date")', field: 'dueDate', width: 100},
     {headerName: '@messages("product_id")', field: 'productId', width: 120},
-    {headerName: '@messages("product_name")', field: 'productName', width: 200},
+    {headerName: '@messages("product_name")', field: 'productName', width: 160},
     {headerName: '@messages("revision")', field: 'revision', width: 80},
     {headerName: '@messages("quantity")', field: 'quantity', width: 80, cellRenderer: renderNumber, filter: 'agNumberColumnFilter'}
   ]

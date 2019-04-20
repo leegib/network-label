@@ -18,9 +18,13 @@ export default {
   beforeRouteEnter(to, from, next) {
     next((vm) => {
       if (to.name == vm.$options.name) {
-        vm.checkFetch();
-        $(window).resize();
+        if (vm.checkForm()) {
+          vm.fetch(() => {
+            vm.$set(vm.data, "isReady", true);
+          });
+        }
       }
+      $(window).resize();
     });
   },
   methods: {
@@ -39,13 +43,35 @@ export default {
       });
     },
     checkFetch() {
-      if (this.checkForm()) {
+      if (this.data.isReady) {
         this.fetch();
+        this.$router.push({ name: this.$options.name });
+      }
+    },
+    checkFetchData(successHandler = () => {}) {
+      if (this.checkForm()) {
+        this.fetch(successHandler);
+      } else {
+        this.$router.push({ name: this.$options.name });
       }
     },
     checkForm() {
       return _.every(["startDate", "endDate"], (k) => {
         return this.form.data[k];
+      });
+    },
+    item() {
+      const item = _.findWhere(this.data.list, { id: this.$route.params.orderId });
+      if (item) {
+        this.$set(this.data, "item", item);
+      } else {
+        this.$router.push({ name: this.$options.name });
+      }
+    },
+    select(item) {
+      this.$router.push({
+        name: "palletLabelList",
+        params: { orderId: item.id }
       });
     }
   }

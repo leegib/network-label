@@ -1,8 +1,15 @@
 @(page: String)(implicit messages: Messages)
 
 <template id="order-list">
-  <div class="nine wide column flex-stretch">
-    @pallet_label_views.order_list(s"$page.order_list")
+  <div class="ui grid" v-full-height>
+    <div class="eight wide column flex-stretch">
+      @pallet_label_views.order_list(s"$page.order_list")
+    </div>
+    <router-view></router-view>
   </div>
-  <div class="seven wide column"></div>
+</template>
+<template id="pallet-label-list">
+  <div class="eight wide column flex-stretch">
+    @pallet_label_views.pallet_label_list(s"$page.pallet_label_list")
+  </div>
 </template>
