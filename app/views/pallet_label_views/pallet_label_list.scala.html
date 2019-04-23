@@ -1,6 +1,15 @@
 @(page: String)(implicit messages: Messages)
 
-<div class="ui blue dividing header">@messages(page)</div>
+<div class="ui blue dividing header">
+  <div class="ui middle aligned grid">
+    <div class="eight wide column">@messages(page)</div>
+    <div class="eight wide column right aligned">
+      <div class="ui tiny compact blue button" v-on:click="$refs.palletLabelAdd.show()">
+        @messages(s"$page.add")
+      </div>
+    </div>
+  </div>
+</div>
 <div class="ag-theme-balham" v-grid="{
   columnDefs: [
     {headerName: '#', valueGetter: 'node.rowIndex + 1', width: 50},
@@ -8,8 +17,15 @@
     {headerName: '@messages("lot_no")', field: 'lotNo', width: 100},
     {headerName: '@messages("quantity")', field: 'quantity', width: 100, cellRenderer: renderNumber, filter: 'agNumberColumnFilter'},
     {headerName: '@messages("weight")', field: 'weight', width: 100, cellRenderer: renderNumber, filter: 'agNumberColumnFilter'},
-    {headerName: '@messages("weight_unit")', field: 'weightUnit', width: 100, cellRenderer: renderNumber, filter: 'agNumberColumnFilter'},
+    {headerName: '@messages("weight_unit")', field: 'weightUnit', width: 100},
     {headerName: '@messages("box_quantity")', field: 'boxQuantity', width: 100, cellRenderer: renderNumber, filter: 'agNumberColumnFilter'},
     {headerName: '@messages("dispatch_date")', field: 'dispatchDate', width: 100}
   ]
 }"></div>
+<div class="ui attached secondary segment" style="border-top: 0;">
+  <div class="ui middle aligned grid">
+    <div class="sixteen wide column right aligned">
+      <div class="ui tiny header">@messages("dispatch_quantity") : {{dispatchQuantity() | commaNumber}}</div>
+    </div>
+  </div>
+</div>

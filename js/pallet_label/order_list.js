@@ -60,8 +60,8 @@ export default {
         return this.form.data[k];
       });
     },
-    item() {
-      const item = _.findWhere(this.data.list, { id: this.$route.params.orderId });
+    item(val) {
+      const item = _.findWhere(this.data.list, { id: val });
       if (item) {
         this.$set(this.data, "item", item);
       } else {

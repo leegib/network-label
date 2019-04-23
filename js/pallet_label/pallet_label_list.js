@@ -1,6 +1,7 @@
 import _ from "underscore";
 import Fetch from "../app/mixins/fetch.js";
 import Grid from "../app/mixins/grid.js";
+import PalletLabelAdd from "./pallet_label_add.js";
 
 export default {
   name: "palletLabelList",
@@ -10,14 +11,11 @@ export default {
     next((vm) => {
       if (to.name == vm.$options.name) {
         if (from.name) {
-          vm.$parent.item();
+          vm.$parent.item(to.params.orderId);
           vm.fetch();
         } else {
-          vm.$parent.checkFetchData(() => {
-            vm.$parent.item();
-            vm.fetch(() => {
-              vm.$set(vm.$parent.data, "isReady", true);
-            });
+          vm.refresh(to.params.orderId, () => {
+            vm.$set(vm.$parent.data, "isReady", true);
           });
         }
       }
@@ -25,7 +23,7 @@ export default {
   },
   beforeRouteUpdate(to, from, next) {
     if (to.name == this.$options.name) {
-      this.$parent.item();
+      this.$parent.item(to.params.orderId);
       this.fetch();
     }
     next();
@@ -43,6 +41,20 @@ export default {
       }, (error) => {
         this.formError(error.data);
       });
+    },
+    dispatchQuantity() {
+      return _.reduce(this.data.list, (sum, item) => {
+        return sum + item.quantity;
+      }, 0);
+    },
+    refresh(orderId, successHandler = () => {}) {
+      this.$parent.checkFetchData(() => {
+        this.$parent.item(orderId);
+        this.fetch(successHandler);
+      });
     }
+  },
+  components: {
+    PalletLabelAdd
   }
 }

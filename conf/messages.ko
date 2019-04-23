@@ -3,7 +3,7 @@ network_label  = 네트워크 라벨 시스템
 
 login.partner_login  = 협력사 로그인
 login.network_select = 네트워크 선택
-login.partner_id     = 협력사 아이디(TTA)
+login.partner_id     = 협력사 아이디(AJA)
 login.business_id    = 사업자 번호(111-11-11111)
 login.submit         = 로그인
 login.error_none     = 일치하는 로그인 정보가 없습니다
@@ -13,9 +13,14 @@ pallet_label_print.order_list             = 발주 목록
 pallet_label_print.order_list.order_date  = 발주 일자 선택(시작일, 종료일)
 pallet_label_print.order_list.search_word = 검색어(발주 번호, 품번, 품명)
 pallet_label_print.pallet_label_list      = 팔레트 라벨 목록
+pallet_label_print.pallet_label_list.add  = 팔레트 라벨 생성
+pallet_label_print.pallet_label_add       = 팔레트 라벨 생성
+pallet_label_print.pallet_label_add.org   = 박스 라벨 목록
+pallet_label_print.pallet_label_add.slt   = 팔레트 라벨 생성 예정
 
 
 # 공통
+adit_success = 정상적으로 등록되었습니다
 box_quantity = 박스 수량
 cancel = 취소
 clear = 초기화
@@ -23,14 +28,19 @@ confirm = 확인
 data_before = 데이터가 조회되지 않은 상태입니다
 data_empty = 데이터가 존재하지 않습니다
 dispatch_date = 출하일
+dispatch_quantity = 출하 수량
 due_date = 납기일
+label_id = 라벨 번호
 logout = 로그아웃
 lot_no = 로트 번호
 order_id = 발주 번호
 order_date = 발주일
+order_quantity = 발주 수량
 pallet_id = 팔레트 번호
 product_id = 품번
 product_name = 품명
+product_quantity = 제품 수량
+production_date = 생산일
 quantity = 수량
 revision = 버전
 search_word_input = 검색어 입력

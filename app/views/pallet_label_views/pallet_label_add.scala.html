@@ -1,0 +1,103 @@
+@(page: String)(implicit messages: Messages)
+
+<template id="pallet-label-add">
+  <div class="ui fullscreen modal">
+    <div class="header">@messages(page)</div>
+    <div class="content">
+      <div class="ui secondary segment">
+        <div class="ui form">
+          <div class="fields">
+            <div class="four wide field">
+              <label>@messages("order_id")</label>
+              <span class="ui small blue header">{{data.order.id}}</span>
+            </div>
+            <div class="four wide field">
+              <label>@messages("order_date")</label>
+              <span class="ui small blue header">{{data.order.orderDate}}</span>
+            </div>
+            <div class="four wide field">
+              <label>@messages("due_date")</label>
+              <span class="ui small blue header">{{data.order.dueDate}}</span>
+            </div>
+            <div class="four wide field">
+              <label>@messages("product_id")</label>
+              <span class="ui small blue header">{{data.order.productId}}</span>
+            </div>
+          </div>
+          <div class="fields field">
+            <div class="eight wide field">
+              <label>@messages("product_name")</label>
+              <span class="ui small blue header">{{data.order.productName}}</span>
+            </div>
+            <div class="four wide field">
+              <label>@messages("revision")</label>
+              <span class="ui small blue header">{{data.order.revision}}</span>
+            </div>
+            <div class="four wide field">
+              <label>@messages("quantity")</label>
+              <span class="ui small blue header">{{data.order.quantity | commaNumber}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui grid" style="height: 500px;">
+        <div class="eight wide column flex-stretch">
+          <div class="ui dividing blue header">
+            <div class="ui grid">
+              <div class="eight wide column">@messages(s"$page.org")</div>
+              <div class="right aligned eight wide column">
+                <div class="ui blue icon button" v-on:click="selectAllFetch(true)" style="margin: 0;">
+                  <i class="angle double right icon" style="margin: 0;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <org ref="org"></org>
+        </div>
+        <div class="eight wide column flex-stretch">
+          <div class="ui dividing blue header">
+            <div class="ui grid">
+              <div class="eight wide column">
+                <div class="ui blue icon button" v-on:click="selectAllFetch(false)" style="margin: 0;">
+                  <i class="angle double left icon" style="margin: 0;"></i>
+                </div>
+              </div>
+              <div class="right aligned eight wide column">@messages(s"$page.slt")</div>
+            </div>
+          </div>
+          <slt ref="slt"></slt>
+          <div class="ui attached secondary segment" style="border-top: 0;" v-if="selected()">
+            <div class="ui middle aligned grid">
+              <div class="eight wide column">
+                <div class="ui tiny header">@messages("box_quantity") : {{selectList(true).length}}</div>
+              </div>
+              <div class="eight wide column right aligned">
+                <div class="ui tiny header">@messages("product_quantity") : {{productQuantity() | commaNumber}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="ui blue button" v-bind:class="{'disabled': !selected()}" v-on:click="submit()">@messages("confirm")</button>
+      <button class="ui cancel button">@messages("cancel")</button>
+    </div>
+  </div>
+</template>
+
+@boxLabelList = {
+  <div class="ag-theme-balham" v-grid="{
+    columnDefs: [
+      {headerName: '#', valueGetter: 'node.rowIndex + 1', width: 50},
+      {headerName: '@messages("label_id")', field: 'id', width: 100},
+      {headerName: '@messages("lot_no")', field: 'lotNo', width: 100},
+      {headerName: '@messages("quantity")', field: 'quantity', width: 100, cellRenderer: renderNumber, filter: 'agNumberColumnFilter'},
+      {headerName: '@messages("weight")', field: 'weight', width: 100, cellRenderer: renderNumber, filter: 'agNumberColumnFilter'},
+      {headerName: '@messages("weight_unit")', field: 'weightUnit', width: 100},
+      {headerName: '@messages("production_date")', field: 'productionDate', width: 100}
+    ]
+  }"></div>
+}
+<template id="pallet-label-add-org">@boxLabelList</template>
+<template id="pallet-label-add-slt">@boxLabelList</template>

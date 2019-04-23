@@ -8,8 +8,12 @@
     <router-view></router-view>
   </div>
 </template>
+
 <template id="pallet-label-list">
   <div class="eight wide column flex-stretch">
     @pallet_label_views.pallet_label_list(s"$page.pallet_label_list")
+    <pallet-label-add ref="palletLabelAdd"></pallet-label-add>
   </div>
 </template>
+
+@views.html.pallet_label_views.pallet_label_add(s"$page.pallet_label_add")
