@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fontFamilies>
+	<fontFamily name="NanumGothic">
+		<normal>
+			<ttf>fonts/NanumGothic.ttf</ttf>
+		</normal>
+		<bold>
+			<ttf>fonts/NanumGothicBold.ttf</ttf>
+		</bold>
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded>true</pdfEmbedded>
+	</fontFamily>
+</fontFamilies>

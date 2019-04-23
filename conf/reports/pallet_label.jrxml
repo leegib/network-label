@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pallet_label" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="594" leftMargin="124" rightMargin="124" topMargin="87" bottomMargin="87" uuid="e7abc229-32c4-44f3-a711-661518a3cbb1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.unit." value="mm"/>
+	<property name="net.sf.jasperreports.print.create.bookmarks" value="false"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="mm"/>
+	<queryString language="JSON">
+		<![CDATA[]]>
+	</queryString>
+	<field name="customerName" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="customerName"/>
+		<fieldDescription><![CDATA[customerName]]></fieldDescription>
+	</field>
+	<field name="customerAddress" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="customerAddress"/>
+		<fieldDescription><![CDATA[customerAddress]]></fieldDescription>
+	</field>
+	<field name="dockCode" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="dockCode"/>
+		<fieldDescription><![CDATA[dockCode]]></fieldDescription>
+	</field>
+	<field name="materialHandlingCode" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="materialHandlingCode"/>
+		<fieldDescription><![CDATA[materialHandlingCode]]></fieldDescription>
+	</field>
+	<field name="deliveryNote" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="deliveryNote"/>
+		<fieldDescription><![CDATA[deliveryNote]]></fieldDescription>
+	</field>
+	<field name="supplierAddress" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="supplierAddress"/>
+		<fieldDescription><![CDATA[supplierAddress]]></fieldDescription>
+	</field>
+	<field name="netWeight" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="netWeight"/>
+		<fieldDescription><![CDATA[netWeight]]></fieldDescription>
+	</field>
+	<field name="grossWeight" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="grossWeight"/>
+		<fieldDescription><![CDATA[grossWeight]]></fieldDescription>
+	</field>
+	<field name="numberOfBoxes" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="numberOfBoxes"/>
+		<fieldDescription><![CDATA[numberOfBoxes]]></fieldDescription>
+	</field>
+	<field name="customerPartNo" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="customerPartNo"/>
+		<fieldDescription><![CDATA[customerPartNo]]></fieldDescription>
+	</field>
+	<field name="quantity" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="quantity"/>
+		<fieldDescription><![CDATA[quantity]]></fieldDescription>
+	</field>
+	<field name="description" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="description"/>
+		<fieldDescription><![CDATA[description]]></fieldDescription>
+	</field>
+	<field name="supplierReference" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="supplierReference"/>
+		<fieldDescription><![CDATA[supplierReference]]></fieldDescription>
+	</field>
+	<field name="supplierCode" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="supplierCode"/>
+		<fieldDescription><![CDATA[supplierCode]]></fieldDescription>
+	</field>
+	<field name="partRevision" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="partRevision"/>
+		<fieldDescription><![CDATA[partRevision]]></fieldDescription>
+	</field>
+	<field name="serialNo" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="serialNo"/>
+		<fieldDescription><![CDATA[serialNo]]></fieldDescription>
+	</field>
+	<field name="batchNo" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="batchNo"/>
+		<fieldDescription><![CDATA[batchNo]]></fieldDescription>
+	</field>
+	<field name="dateOfProduction" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="dateOfProduction"/>
+		<fieldDescription><![CDATA[dateOfProduction]]></fieldDescription>
+	</field>
+	<field name="type.deliveryNote" class="java.lang.String">
+		<fieldDescription><![CDATA[type.deliveryNote]]></fieldDescription>
+	</field>
+	<field name="type.netWeight" class="java.lang.String">
+		<fieldDescription><![CDATA[type.netWeight]]></fieldDescription>
+	</field>
+	<field name="type.grossWeight" class="java.lang.String">
+		<fieldDescription><![CDATA[type.grossWeight]]></fieldDescription>
+	</field>
+	<field name="type.customerPartNo" class="java.lang.String">
+		<fieldDescription><![CDATA[type.customerPartNo]]></fieldDescription>
+	</field>
+	<field name="type.quantity" class="java.lang.String">
+		<fieldDescription><![CDATA[type.quantity]]></fieldDescription>
+	</field>
+	<field name="type.supplierCode" class="java.lang.String">
+		<fieldDescription><![CDATA[type.supplierCode]]></fieldDescription>
+	</field>
+	<field name="type.serialNo" class="java.lang.String">
+		<fieldDescription><![CDATA[type.serialNo]]></fieldDescription>
+	</field>
+	<field name="type.batchNo" class="java.lang.String">
+		<fieldDescription><![CDATA[type.batchNo]]></fieldDescription>
+	</field>
+	<field name="dataMatrixCode" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="dataMatrixCode"/>
+		<fieldDescription><![CDATA[dataMatrixCode]]></fieldDescription>
+	</field>
+	<field name="dateOfDispatch" class="java.lang.String">
+		<fieldDescription><![CDATA[dateOfDispatch]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="421" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="590" height="421" uuid="6b22b0d6-0ad0-4f45-8446-d265b49f194a"/>
+				<textElement>
+					<font fontName="NanumGothic"/>
+				</textElement>
+				<text><![CDATA[pallet_label
+
+팔레트 라벨]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
