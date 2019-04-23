@@ -1,11 +1,12 @@
 package controllers
 
 import javax.inject.Inject
+import play.api.Environment
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.libs.json.Json
 import play.api.mvc.Controller
 
-class PalletLabel @Inject()(val messagesApi: MessagesApi, auth: controllers.Auth,
+class PalletLabel @Inject()(val messagesApi: MessagesApi, env: Environment, auth: controllers.Auth,
 daoAuth: dao.Auth, daoPalletLabel: dao.PalletLabel) extends Controller with I18nSupport {
 
   import auth.SessionAction
@@ -62,6 +63,10 @@ daoAuth: dao.Auth, daoPalletLabel: dao.PalletLabel) extends Controller with I18n
         case r => BadRequest(requestMsg(r.left.get))
       }
     )
+  }
+
+  def palletLabelPrint = SessionAction { implicit request =>
+    PackageObjectLabel.pdf(Json.obj("" -> ""), env.getFile("conf/reports/pallet_label.jrxml"))
   }
 
 }

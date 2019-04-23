@@ -8,15 +8,16 @@ login.business_id    = 사업자 번호(111-11-11111)
 login.submit         = 로그인
 login.error_none     = 일치하는 로그인 정보가 없습니다
 
-pallet_label_print                        = 팔레트 라벨 출력
-pallet_label_print.order_list             = 발주 목록
-pallet_label_print.order_list.order_date  = 발주 일자 선택(시작일, 종료일)
-pallet_label_print.order_list.search_word = 검색어(발주 번호, 품번, 품명)
-pallet_label_print.pallet_label_list      = 팔레트 라벨 목록
-pallet_label_print.pallet_label_list.add  = 팔레트 라벨 생성
-pallet_label_print.pallet_label_add       = 팔레트 라벨 생성
-pallet_label_print.pallet_label_add.org   = 박스 라벨 목록
-pallet_label_print.pallet_label_add.slt   = 팔레트 라벨 생성 예정
+pallet_label_print                         = 팔레트 라벨 출력
+pallet_label_print.order_list              = 발주 목록
+pallet_label_print.order_list.order_date   = 발주 일자 선택(시작일, 종료일)
+pallet_label_print.order_list.search_word  = 검색어(발주 번호, 품번, 품명)
+pallet_label_print.pallet_label_list       = 팔레트 라벨 목록
+pallet_label_print.pallet_label_list.add   = 팔레트 라벨 등록
+pallet_label_print.pallet_label_list.print = 선택한 라벨 출력
+pallet_label_print.pallet_label_add        = 팔레트 라벨 생성
+pallet_label_print.pallet_label_add.org    = 박스 라벨 목록
+pallet_label_print.pallet_label_add.slt    = 팔레트 라벨 생성 예정
 
 
 # 공통

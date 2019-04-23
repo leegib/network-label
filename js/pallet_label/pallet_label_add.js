@@ -50,13 +50,13 @@ export default {
     },
     submit() {
       this.$http.post(
-        jsRoutes.controllers.PalletLabel.palletLabelAdd(this.data.order.id).url, {
-          boxLabel: this.selectList(true)
-        }
+        jsRoutes.controllers.PalletLabel.palletLabelAdd(this.data.order.id).url,
+        { boxLabel: this.selectList(true) }
       ).then(() => {
         this.modalClose();
+        this.$parent.print();
         Vue.$toastr.success(msg("adit_success"));
-        this.$parent.refresh(this.data.order.id);
+        this.$parent.fetch();
       }, (error) => {
         this.formError(error.data);
       });

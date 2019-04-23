@@ -4,8 +4,13 @@
   <div class="ui middle aligned grid">
     <div class="eight wide column">@messages(page)</div>
     <div class="eight wide column right aligned">
-      <div class="ui tiny compact blue button" v-on:click="$refs.palletLabelAdd.show()">
+      <div class="ui tiny compact olive button" v-on:click="$refs.palletLabelAdd.show()">
+        <i class="tag icon"></i>
         @messages(s"$page.add")
+      </div>
+      <div class="ui tiny compact teal button" v-bind:class="{'disabled': !data.item}" v-on:click="print()">
+        <i class="print icon"></i>
+        @messages(s"$page.print")
       </div>
     </div>
   </div>

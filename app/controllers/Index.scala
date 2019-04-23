@@ -78,7 +78,8 @@ class Index @Inject()(
       controllers.routes.javascript.PalletLabel.orderList,
       controllers.routes.javascript.PalletLabel.palletLabelList,
       controllers.routes.javascript.PalletLabel.boxLabelList,
-      controllers.routes.javascript.PalletLabel.palletLabelAdd
+      controllers.routes.javascript.PalletLabel.palletLabelAdd,
+      controllers.routes.javascript.PalletLabel.palletLabelPrint
     )).as(JAVASCRIPT)
   }
 
