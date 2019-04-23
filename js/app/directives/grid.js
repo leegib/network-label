@@ -39,5 +39,17 @@ export default {
     vm.$watch("data.list", (val) => {
       grid.api.setRowData(val);
     });
+
+    vm.$watch("data.item", (val) => {
+      if (val) {
+        grid.api.forEachNode((node) => {
+          if (val == node.data) {
+            node.setSelected(true, true, true);
+          }
+        });
+      } else {
+        grid.api.deselectAll();
+      }
+    });
   }
 }
