@@ -37,4 +37,31 @@ daoAuth: dao.Auth, daoPalletLabel: dao.PalletLabel) extends Controller with I18n
     }
   }
 
+  /**
+   * 팔레트 라벨 등록 - 박스 라벨 목록
+   * @param orderId 발주 번호
+   * @return
+   */
+  def boxLabelList(orderId: String) = SessionAction { implicit request =>
+    daoPalletLabel.boxLabelList(orderId) match {
+      case r if r.isRight => Ok(Json.toJson(r.right.get))
+      case r => BadRequest(requestMsg(r.left.get))
+    }
+  }
+
+  /**
+   * 팔레트 라벨 등록
+   * @param orderId 발주 번호
+   * @return
+   */
+  def palletLabelAdd(orderId: String) = SessionAction { implicit request =>
+    forms.PalletLabel.palletLabelAdd.bindFromRequest.fold(
+      error => BadRequest(error.errorsAsJson),
+      form => daoPalletLabel.palletLabelInsert(orderId, form) match {
+        case r if r.isRight => Ok(Json.toJson(r.right.get))
+        case r => BadRequest(requestMsg(r.left.get))
+      }
+    )
+  }
+
 }

@@ -1,24 +1,28 @@
 # Index
 # 네트워크 목록
-GET         /network                  controllers.Index.networkList
+GET         /network                     controllers.Index.networkList
 # 로그인
-POST        /login                    controllers.Index.login
+POST        /login                       controllers.Index.login
 # 로그아웃
-GET         /logout                   controllers.Index.logout
+GET         /logout                      controllers.Index.logout
 # jsMessages
-GET         /jsMessages               controllers.Index.jsMessages
+GET         /jsMessages                  controllers.Index.jsMessages
 # jsRoutes
-GET         /jsRoutes                 controllers.Index.jsRoutes
+GET         /jsRoutes                    controllers.Index.jsRoutes
 
 # 팔레트 라벨 출력
 # 발주 목록
-POST        /palletLabel/order        controllers.PalletLabel.orderList(searchWord: String ?= "")
+POST        /palletLabel/order           controllers.PalletLabel.orderList(searchWord: String ?= "")
 # 팔레트 라벨 목록
-GET         /palletLabel              controllers.PalletLabel.palletLabelList(orderId: String)
+GET         /palletLabel                 controllers.PalletLabel.palletLabelList(orderId: String)
+# 팔레트 라벨 등록 - 박스 라벨 목록
+GET         /palletLabel/boxLabel        controllers.PalletLabel.boxLabelList(orderId: String)
+# 팔레트 라벨 등록
+POST        /palletLabel                 controllers.PalletLabel.palletLabelAdd(orderId: String)
 
 # Asset
-GET         /assets/*file             controllers.Assets.at(path="/public", file)
+GET         /assets/*file                controllers.Assets.at(path="/public", file)
 
 # 페이지
-GET         /                         controllers.Index.page(path: String ?= "")
-GET         /*path                    controllers.Index.page(path: String)
+GET         /                            controllers.Index.page(path: String ?= "")
+GET         /*path                       controllers.Index.page(path: String)

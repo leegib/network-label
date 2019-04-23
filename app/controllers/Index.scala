@@ -76,7 +76,9 @@ class Index @Inject()(
       controllers.routes.javascript.Index.networkList,
       controllers.routes.javascript.Index.login,
       controllers.routes.javascript.PalletLabel.orderList,
-      controllers.routes.javascript.PalletLabel.palletLabelList
+      controllers.routes.javascript.PalletLabel.palletLabelList,
+      controllers.routes.javascript.PalletLabel.boxLabelList,
+      controllers.routes.javascript.PalletLabel.palletLabelAdd
     )).as(JAVASCRIPT)
   }
 
