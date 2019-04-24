@@ -80,7 +80,7 @@
       </div>
     </div>
     <div class="actions">
-      <button class="ui blue button" v-bind:class="{'disabled': !selected()}" v-on:click="submit()">@messages("confirm")</button>
+      <button class="ui blue button" v-bind:class="{'disabled': data.isLoading || !selected()}" v-on:click="submit()">@messages("confirm")</button>
       <button class="ui cancel button">@messages("cancel")</button>
     </div>
   </div>

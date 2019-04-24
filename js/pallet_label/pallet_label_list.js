@@ -13,6 +13,7 @@ export default {
         if (from.name) {
           vm.$parent.item(to.params.orderId);
           vm.fetch();
+          vm.$set(vm.data, "item", null);
         } else {
           vm.$parent.checkFetchData(() => {
             vm.$parent.item(to.params.orderId);
@@ -28,6 +29,7 @@ export default {
     if (to.name == this.$options.name) {
       this.$parent.item(to.params.orderId);
       this.fetch();
+      this.$set(this.data, "item", null);
     }
     next();
   },
@@ -50,15 +52,20 @@ export default {
         return sum + item.quantity;
       }, 0);
     },
-    print() {
+    print(palletLabelId) {
+      this.$set(this.data, "isLoading", true);
+
       this.$http.post(
-        jsRoutes.controllers.PalletLabel.palletLabelPrint().url,
+        jsRoutes.controllers.PalletLabel.palletLabelPrint(palletLabelId).url,
         {},
         { responseType: "blob" }
       ).then((success) => {
         window.open(URL.createObjectURL(new Blob([success.data], { type: "application/pdf" })), "", "location=no");
       }, (error) => {
         this.formError(error.data);
+      }).finally(() => {
+        this.$set(this.data, "isLoading", false);
+        this.$set(this.data, "item", null);
       });
     },
     select(item) {

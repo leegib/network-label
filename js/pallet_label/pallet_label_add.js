@@ -45,20 +45,25 @@ export default {
     },
     show() {
       this.modalShow();
+      this.$set(this.data, "isLoading", false);
       this.$set(this.data, "order", $.extend({}, this.$parent.$parent.data.item));
       this.fetch();
     },
     submit() {
+      this.$set(this.data, "isLoading", true);
+
       this.$http.post(
         jsRoutes.controllers.PalletLabel.palletLabelAdd(this.data.order.id).url,
         { boxLabel: this.selectList(true) }
-      ).then(() => {
+      ).then((success) => {
         this.modalClose();
-        this.$parent.print();
         Vue.$toastr.success(msg("adit_success"));
         this.$parent.fetch();
+        this.$parent.print(success.data);
       }, (error) => {
         this.formError(error.data);
+      }).finally(() => {
+        this.$set(this.data, "isLoading", false);
       });
     }
   },

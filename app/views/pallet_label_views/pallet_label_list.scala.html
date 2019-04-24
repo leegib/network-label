@@ -8,7 +8,7 @@
         <i class="tag icon"></i>
         @messages(s"$page.add")
       </div>
-      <div class="ui tiny compact teal button" v-bind:class="{'disabled': !data.item}" v-on:click="print()">
+      <div class="ui tiny compact teal button" v-bind:class="{'disabled': data.isLoading || !data.item}" v-on:click="print(data.item.id)">
         <i class="print icon"></i>
         @messages(s"$page.print")
       </div>
