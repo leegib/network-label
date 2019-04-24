@@ -1,5 +1,6 @@
 package controllers
 
+import java.text.{DecimalFormat, SimpleDateFormat}
 import javax.inject.Inject
 import play.api.Environment
 import play.api.i18n.{I18nSupport, MessagesApi}
@@ -59,14 +60,42 @@ daoAuth: dao.Auth, daoPalletLabel: dao.PalletLabel) extends Controller with I18n
     forms.PalletLabel.palletLabelAdd.bindFromRequest.fold(
       error => BadRequest(error.errorsAsJson),
       form => daoPalletLabel.palletLabelInsert(orderId, form) match {
-        case r if r.isRight => Ok(Json.toJson(r.right.get))
+        case r if r.isRight => r.right.get.map { palletLabelId =>
+          Ok(palletLabelId)
+        }.getOrElse(BadRequest)
         case r => BadRequest(requestMsg(r.left.get))
       }
     )
   }
 
-  def palletLabelPrint = SessionAction { implicit request =>
-    PackageObjectLabel.pdf(Json.obj("" -> ""), env.getFile("conf/reports/pallet_label.jrxml"))
+  /**
+   * 팔레트 라벨 출력
+   * @param palletLabelId 팔레트 라벨 번호
+   * @return
+   */
+  def palletLabelPrint(palletLabelId: String) = SessionAction { implicit request =>
+    daoPalletLabel.palletLabel(palletLabelId) match {
+      case r if r.isRight => r.right.get.map { case (network, partner, order, palletLabel) =>
+        val yyyyMMdd = new SimpleDateFormat("yyyy-MM-dd")
+        val commaNumber = new DecimalFormat("#,###")
+        PackageObjectLabel.pdf(Json.obj(
+          "network" -> network,
+          "partner" -> partner,
+          "order" -> order,
+          "palletLabel" -> palletLabel,
+          "dueDate" -> yyyyMMdd.format(order.dueDate),
+          "dispatchDate" -> yyyyMMdd.format(palletLabel.dispatchDate),
+          "quantity" -> commaNumber.format(palletLabel.quantity),
+          "weight" -> s"${commaNumber.format(palletLabel.weight)} ${palletLabel.weightUnit}",
+          "qrCode" ->s"""{
+            "orderId": "${order.id}",
+            "partnerId": "${partner.id}",
+            "quantity": "${palletLabel.quantity}"
+          }"""
+        ), env.getFile("conf/reports/pallet_label.jrxml"))
+      }.getOrElse(BadRequest);
+      case r => BadRequest(requestMsg(r.left.get))
+    }
   }
 
 }

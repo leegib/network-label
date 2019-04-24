@@ -1,8 +1,9 @@
 package dao
 
-import java.util.Date
+import java.util.{UUID, Date}
 import javax.inject.Inject
 import play.api.db.Database
+import anorm.SqlParser._
 import anorm._
 
 class PalletLabel @Inject()(db: Database) {
@@ -79,7 +80,7 @@ class PalletLabel @Inject()(db: Database) {
    * @param boxLabelList 박스라벨 목록
    * @return
    */
-  def palletLabelInsert(orderId: String, boxLabelList: Seq[models.BoxLabel]): Either[String, Int] = {
+  def palletLabelInsert(orderId: String, boxLabelList: Seq[models.BoxLabel]): Either[String, Option[String]] = {
     db.withTransactionCover({ implicit c =>
 
       val lotNo = boxLabelList.map(_.lotNo).distinct match {
@@ -112,9 +113,77 @@ class PalletLabel @Inject()(db: Database) {
           SQL"""
             INSERT INTO label(pallet_label_id, box_label_id) VALUES($palletLabelId, ${b.id})
           """.executeUpdate
-        }.sum
-      }.getOrElse(0)
+        }
+        palletLabelId
+      }
     }, "pallet_label.pallet_label_insert")
+  }
+
+  /**
+   * 팔레트 라벨 출력
+   * @param palletLabelId 팔레트 라벨 번호
+   */
+  def palletLabel(palletLabelId: String) = {
+    db.withConnectionCover({ implicit c =>
+      SQL"""
+        SELECT
+          o.id, o.order_date, o.due_date, o.quantity AS order_quantity, o.network_id,
+          o.partner_id, o.product_uid, p.lot_no, p.quantity AS dispatch_quantity, p.box_quantity,
+          p.dispatch_date
+        FROM pallet_label AS p
+        LEFT OUTER JOIN "order" AS o ON p.order_id = o.id
+        WHERE p.id = $palletLabelId LIMIT 1
+      """.as((
+        get[String]("id") ~ get[Date]("order_date") ~ get[Date]("due_date") ~ get[Long]("order_quantity") ~ get[String]("network_id") ~
+        get[String]("partner_id") ~ get[UUID]("product_uid") ~ get[String]("lot_no") ~ get[Long]("dispatch_quantity") ~ get[Long]("box_quantity") ~
+        get[Date]("dispatch_date") map { case
+          orderId ~ orderDate ~ dueDate ~ orderQuantity ~ networkId ~
+          partnerId ~ productUid ~ lotNo ~ dispatchQuantity ~ boxQuantity ~
+          dispatchDate => (
+            orderId, orderDate, dueDate, orderQuantity, networkId,
+            partnerId, productUid, lotNo, dispatchQuantity, boxQuantity,
+            dispatchDate
+          )
+        }
+      ).singleOpt).flatMap { case (
+        orderId, orderDate, dueDate, orderQuantity, networkId,
+        partnerId, productUid, lotNo, dispatchQuantity, boxQuantity,
+        dispatchDate
+      ) =>
+        val network = SQL"""
+          SELECT id, name, address FROM network WHERE id = $networkId LIMIT 1
+        """.as(models.Network.parser.singleOpt)
+
+        val partner = SQL"""
+          SELECT uid, id, name, address FROM partner WHERE id = $partnerId LIMIT 1
+        """.as(models.Partner.parser.singleOpt)
+
+        val product = SQL"""
+          SELECT id, name, revision, weight, weight_unit_id FROM product WHERE uid = $productUid::uuid LIMIT 1
+        """.as((
+          get[String]("id") ~ get[String]("name") ~ get[String]("revision") ~ get[Double]("weight") ~ get[String]("weight_unit_id") map { case
+            productId ~ productName ~ revision ~ weight ~ weightUnitId => (
+              productId, productName, revision, weight, weightUnitId
+            )
+          }
+        ).singleOpt).map { case (productId, productName, revision, weight, weightUnitId) =>
+          (productId, productName, revision, weight, weightUnitId)
+        }
+        for {
+          n <- network
+          p <- partner
+          (productId, productName, revision, weight, weightUnitId) <- product
+        } yield {
+          (n, p, models.Order(
+            orderId, orderDate, dueDate, productId, productName,
+            revision, orderQuantity
+          ), models.PalletLabel(
+            palletLabelId, lotNo, dispatchQuantity, weight * dispatchQuantity, weightUnitId,
+            boxQuantity, dispatchDate
+          ))
+        }
+      }
+    }, "pallet_label.pallet_label_print")
   }
 
 }

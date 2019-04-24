@@ -7,13 +7,13 @@ import anorm._
 
 /**
  * 발주
- * @param id 발주번호
+ * @param id 발주 번호
  * @param orderDate 발주일
  * @param dueDate 납기일
  * @param productId 품번
  * @param productName 품명
  * @param revision 버전
- * @param quantity 수량
+ * @param quantity 발주 수량
  */
 case class Order(
   id         : String,
@@ -22,7 +22,7 @@ case class Order(
   productId  : String,
   productName: String,
   revision   : String,
-  quantity   : Int
+  quantity   : Long
 )
 
 object Order {

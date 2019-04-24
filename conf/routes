@@ -20,7 +20,7 @@ GET         /palletLabel/boxLabel        controllers.PalletLabel.boxLabelList(or
 # 팔레트 라벨 등록
 POST        /palletLabel                 controllers.PalletLabel.palletLabelAdd(orderId: String)
 # 팔레트 라벨 출력
-POST        /palletLabel/print           controllers.PalletLabel.palletLabelPrint
+POST        /palletLabel/print           controllers.PalletLabel.palletLabelPrint(palletLabelId: String)
 
 # Asset
 GET         /assets/*file                controllers.Assets.at(path="/public", file)
