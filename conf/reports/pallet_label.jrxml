@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pallet_label" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="594" leftMargin="124" rightMargin="124" topMargin="87" bottomMargin="87" uuid="e7abc229-32c4-44f3-a711-661518a3cbb1">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pallet_label" pageWidth="841" pageHeight="595" orientation="Landscape" columnWidth="729" leftMargin="56" rightMargin="56" topMargin="56" bottomMargin="56" uuid="e7abc229-32c4-44f3-a711-661518a3cbb1">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<property name="com.jaspersoft.studio.unit." value="mm"/>
 	<property name="net.sf.jasperreports.print.create.bookmarks" value="false"/>
@@ -15,120 +15,426 @@
 	<queryString language="JSON">
 		<![CDATA[]]>
 	</queryString>
-	<field name="customerName" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="customerName"/>
-		<fieldDescription><![CDATA[customerName]]></fieldDescription>
-	</field>
-	<field name="customerAddress" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="customerAddress"/>
-		<fieldDescription><![CDATA[customerAddress]]></fieldDescription>
-	</field>
-	<field name="dockCode" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="dockCode"/>
-		<fieldDescription><![CDATA[dockCode]]></fieldDescription>
-	</field>
-	<field name="materialHandlingCode" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="materialHandlingCode"/>
-		<fieldDescription><![CDATA[materialHandlingCode]]></fieldDescription>
-	</field>
-	<field name="deliveryNote" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="deliveryNote"/>
-		<fieldDescription><![CDATA[deliveryNote]]></fieldDescription>
-	</field>
-	<field name="supplierAddress" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="supplierAddress"/>
-		<fieldDescription><![CDATA[supplierAddress]]></fieldDescription>
-	</field>
-	<field name="netWeight" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="netWeight"/>
-		<fieldDescription><![CDATA[netWeight]]></fieldDescription>
-	</field>
-	<field name="grossWeight" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="grossWeight"/>
-		<fieldDescription><![CDATA[grossWeight]]></fieldDescription>
-	</field>
-	<field name="numberOfBoxes" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="numberOfBoxes"/>
-		<fieldDescription><![CDATA[numberOfBoxes]]></fieldDescription>
-	</field>
-	<field name="customerPartNo" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="customerPartNo"/>
-		<fieldDescription><![CDATA[customerPartNo]]></fieldDescription>
-	</field>
-	<field name="quantity" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="quantity"/>
-		<fieldDescription><![CDATA[quantity]]></fieldDescription>
-	</field>
-	<field name="description" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="description"/>
-		<fieldDescription><![CDATA[description]]></fieldDescription>
-	</field>
-	<field name="supplierReference" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="supplierReference"/>
-		<fieldDescription><![CDATA[supplierReference]]></fieldDescription>
-	</field>
-	<field name="supplierCode" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="supplierCode"/>
-		<fieldDescription><![CDATA[supplierCode]]></fieldDescription>
-	</field>
-	<field name="partRevision" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="partRevision"/>
-		<fieldDescription><![CDATA[partRevision]]></fieldDescription>
-	</field>
-	<field name="serialNo" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="serialNo"/>
-		<fieldDescription><![CDATA[serialNo]]></fieldDescription>
-	</field>
-	<field name="batchNo" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="batchNo"/>
-		<fieldDescription><![CDATA[batchNo]]></fieldDescription>
-	</field>
-	<field name="dateOfProduction" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="dateOfProduction"/>
-		<fieldDescription><![CDATA[dateOfProduction]]></fieldDescription>
-	</field>
-	<field name="type.deliveryNote" class="java.lang.String">
-		<fieldDescription><![CDATA[type.deliveryNote]]></fieldDescription>
-	</field>
-	<field name="type.netWeight" class="java.lang.String">
-		<fieldDescription><![CDATA[type.netWeight]]></fieldDescription>
-	</field>
-	<field name="type.grossWeight" class="java.lang.String">
-		<fieldDescription><![CDATA[type.grossWeight]]></fieldDescription>
-	</field>
-	<field name="type.customerPartNo" class="java.lang.String">
-		<fieldDescription><![CDATA[type.customerPartNo]]></fieldDescription>
-	</field>
-	<field name="type.quantity" class="java.lang.String">
-		<fieldDescription><![CDATA[type.quantity]]></fieldDescription>
-	</field>
-	<field name="type.supplierCode" class="java.lang.String">
-		<fieldDescription><![CDATA[type.supplierCode]]></fieldDescription>
-	</field>
-	<field name="type.serialNo" class="java.lang.String">
-		<fieldDescription><![CDATA[type.serialNo]]></fieldDescription>
-	</field>
-	<field name="type.batchNo" class="java.lang.String">
-		<fieldDescription><![CDATA[type.batchNo]]></fieldDescription>
-	</field>
-	<field name="dataMatrixCode" class="java.lang.String">
-		<property name="net.sf.jasperreports.json.field.expression" value="dataMatrixCode"/>
-		<fieldDescription><![CDATA[dataMatrixCode]]></fieldDescription>
-	</field>
-	<field name="dateOfDispatch" class="java.lang.String">
-		<fieldDescription><![CDATA[dateOfDispatch]]></fieldDescription>
-	</field>
+	<field name="network.id" class="java.lang.String"/>
+	<field name="network.name" class="java.lang.String"/>
+	<field name="network.address" class="java.lang.String"/>
+	<field name="partner.id" class="java.lang.String"/>
+	<field name="partner.name" class="java.lang.String"/>
+	<field name="partner.address" class="java.lang.String"/>
+	<field name="order.id" class="java.lang.String"/>
+	<field name="order.productId" class="java.lang.String"/>
+	<field name="order.productName" class="java.lang.String"/>
+	<field name="order.revision" class="java.lang.String"/>
+	<field name="palletLabel.lotNo" class="java.lang.String"/>
+	<field name="palletLabel.boxQuantity" class="java.lang.String"/>
+	<field name="weight" class="java.lang.String"/>
+	<field name="dueDate" class="java.lang.String"/>
+	<field name="palletLabel.quantity" class="java.lang.String"/>
+	<field name="quantity" class="java.lang.String"/>
+	<field name="dispatchDate" class="java.lang.String"/>
+	<field name="qrCode" class="java.lang.String"/>
 	<detail>
-		<band height="421" splitType="Stretch">
+		<band height="442" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="590" height="421" uuid="6b22b0d6-0ad0-4f45-8446-d265b49f194a"/>
-				<textElement>
-					<font fontName="NanumGothic"/>
+				<reportElement x="0" y="0" width="136" height="34" uuid="109a4dfa-c653-49a5-bb78-ad7758028293">
+					<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
 				</textElement>
-				<text><![CDATA[pallet_label
-
-팔레트 라벨]]></text>
+				<text><![CDATA[고객사]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="0" y="34" width="364" height="68" uuid="8dcbc302-e5b6-420f-bb68-6797642f0888">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{network.address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="364" y="0" width="136" height="34" uuid="751c5786-3692-4e95-a3ac-04d0ed94229a">
+					<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[협력사]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="364" y="34" width="364" height="68" uuid="321bddb8-25d8-4214-b5ef-143a13e7b20a">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{partner.address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="102" width="136" height="34" uuid="d484f362-0fdc-47b2-9891-056298d51c38"/>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[발주 번호]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="102" width="136" height="34" uuid="a385c393-616f-4403-b414-d4dff53dee31"/>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[협력사 번호]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="0" width="228" height="34" uuid="ab1b8996-9d1d-4c21-b4ed-0533317eb4c7">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{network.name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="228" height="34" uuid="2d2fb20e-19d1-473e-ab76-589f33f31bb5">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{partner.name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="102" width="228" height="34" uuid="02b7b6fa-629d-4b4a-a2c4-759bd5cdde46">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{order.id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="102" width="228" height="34" uuid="b72f8312-cdd5-4183-904d-c6752c2c35f3">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{partner.id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="204" width="136" height="34" uuid="4d8a9b2c-00c9-4bd8-b400-fe94abe8a27b"/>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[품번]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="204" width="228" height="34" uuid="8f544bab-c2c0-4747-8bd9-84096d800f3d">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{order.productId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="364" y="204" width="136" height="34" uuid="3924f48b-f9e9-414a-8b1e-c384a8581494"/>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[품명]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="500" y="204" width="228" height="34" uuid="88015d21-30e4-4e7e-9950-6369f24b5088">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{order.productName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="340" width="136" height="34" uuid="f5902dcc-0abe-41fc-bf67-df79439494b6"/>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[제품 수량]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="306" width="136" height="34" uuid="6e40891b-0f15-4b09-a182-76743dfad99b"/>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[납기일]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="306" width="228" height="34" uuid="3694e3f9-3cbb-414f-9152-8a462ecaef38">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dueDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="364" y="306" width="136" height="34" uuid="36719a16-ebd7-4eac-96e6-05dd9a5ac64b"/>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[출하일]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="500" y="306" width="228" height="34" uuid="b5058932-30be-4d4d-835c-20eb1794ba83">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dispatchDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="340" width="228" height="34" uuid="2951bf48-c62b-4c28-bebd-5425d10d321c">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="238" width="136" height="34" uuid="60df2834-5ccb-4160-803f-e432fcd53c4d"/>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[리비전]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="238" width="228" height="34" uuid="dcf57274-a933-4279-9438-2c6e7ddc6b56">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{order.revision}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="364" y="238" width="136" height="34" uuid="3ed56ede-f5c0-478d-8472-af18fc48b92a"/>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[로트 번호]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="500" y="238" width="228" height="34" uuid="089ac9a8-dc9b-45fd-998d-79fe8b841600">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{palletLabel.lotNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="272" width="136" height="34" uuid="5592b347-82fe-4ad5-8e5d-01308ce2f018"/>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[박스 수량]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="272" width="228" height="34" uuid="a562a925-6e59-4a9e-8414-4a7d5281b75e">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{palletLabel.boxQuantity}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="364" y="272" width="136" height="34" uuid="30d7fd18-3c14-43ee-8841-8da81e6c6da3"/>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[총 중량]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="500" y="272" width="228" height="34" uuid="1a91d6ef-070e-485e-8acc-b55c06e4004c">
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="0" y="136" width="364" height="68" uuid="b7909ebb-e438-4254-bc48-ff4ef92f3ee1"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<componentElement>
+					<reportElement x="10" y="10" width="340" height="50" uuid="ab4c2df3-d45f-407c-8d07-26ed34327a69"/>
+					<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" moduleWidth="1.2" textPosition="none" verticalQuietZone="0.0">
+						<jr:codeExpression><![CDATA[$F{order.id}]]></jr:codeExpression>
+					</jr:Code39>
+				</componentElement>
+			</frame>
+			<frame>
+				<reportElement x="364" y="136" width="364" height="68" uuid="c471181d-fe28-4ba2-9bd0-9440ed2af733"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<componentElement>
+					<reportElement x="10" y="10" width="340" height="50" uuid="7ab8a418-4f2b-44de-a147-0d4d993b3908"/>
+					<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" moduleWidth="1.2" textPosition="none" verticalQuietZone="0.0">
+						<jr:codeExpression><![CDATA[$F{partner.id}]]></jr:codeExpression>
+					</jr:Code39>
+				</componentElement>
+			</frame>
+			<frame>
+				<reportElement x="0" y="374" width="364" height="68" uuid="09586a85-17dc-428c-877b-1215ad0b36a2"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<componentElement>
+					<reportElement x="10" y="10" width="340" height="50" uuid="c86b8194-f243-4a56-a232-f30dcacd5e90"/>
+					<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" moduleWidth="1.2" textPosition="none" verticalQuietZone="0.0">
+						<jr:codeExpression><![CDATA[$F{palletLabel.quantity}]]></jr:codeExpression>
+					</jr:Code39>
+				</componentElement>
+			</frame>
+			<staticText>
+				<reportElement x="364" y="340" width="236" height="102" uuid="1c69b441-80e3-4f2d-a834-18d32b918bfe"/>
+				<box leftPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="NanumGothic" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MADE IN KOREA]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="600" y="340" width="128" height="102" uuid="3c7bca9c-23fe-4a55-be42-6256d018d1aa"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<componentElement>
+					<reportElement x="2" y="2" width="126" height="99" uuid="e7ba8e70-979f-48e6-a00f-bb972172088f"/>
+					<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<jr:codeExpression><![CDATA[$F{qrCode}]]></jr:codeExpression>
+					</jr:QRCode>
+				</componentElement>
+			</frame>
 		</band>
 	</detail>
 </jasperReport>
