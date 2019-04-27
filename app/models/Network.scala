@@ -4,6 +4,12 @@ import play.api.libs.json.Json
 import anorm.SqlParser._
 import anorm._
 
+/**
+ * 네트워크
+ * @param id 아이디
+ * @param name 이름
+ * @param address 주소
+ */
 case class Network(
   id     : String,
   name   : String,
