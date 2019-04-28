@@ -191,6 +191,11 @@ COPY box_label (id, lot_no, quantity, production_date, product_uid) FROM stdin;
 --
 
 COPY label (pallet_label_id, box_label_id) FROM stdin;
+20190401001000	20190408001
+20190401001000	20190408002
+20190401001000	20190408003
+20190401001000	20190408004
+20190401001000	20190408005
 \.
 
 
@@ -218,6 +223,7 @@ COPY "order" (id, order_date, due_date, quantity, network_id, partner_id, produc
 --
 
 COPY pallet_label (id, lot_no, quantity, box_quantity, dispatch_date, order_id, number) FROM stdin;
+20190401001000	A0002	250	5	2019-04-25	20190401001	1
 \.
 
 
@@ -226,7 +232,7 @@ COPY pallet_label (id, lot_no, quantity, box_quantity, dispatch_date, order_id, 
 --
 
 COPY partner (uid, id, name, business_id, address, network_id) FROM stdin;
-bb715796-3bd3-4354-83f7-370f644c9ba5	AJA	안전 에어백	111-11-11111	경기도 안성시 안전동 1-1	WRC
+df112a4e-42c3-4a7f-94cd-91e13afd7169	AJA	안전 에어백	111-11-11111	경기도 안성시 안전동 1-1	WRC
 \.
 
 
@@ -382,6 +388,14 @@ ALTER TABLE ONLY pallet_label
 
 ALTER TABLE ONLY partner
     ADD CONSTRAINT partner_network_id_fkey FOREIGN KEY (network_id) REFERENCES network(id);
+
+
+--
+-- Name: product_weight_unit_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: pulse
+--
+
+ALTER TABLE ONLY product
+    ADD CONSTRAINT product_weight_unit_id_fkey FOREIGN KEY (weight_unit_id) REFERENCES unit(id);
 
 
 --
